@@ -1,44 +1,45 @@
-const navbar = document.querySelector('.navbar');
-const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links');
-const scrollTopBtn = document.getElementById('scrollTop');
+const toggle=document.getElementById("toggle")
+const menu=document.getElementById("menu")
 
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 50);
-  scrollTopBtn.style.display = window.scrollY > 400 ? 'block' : 'none';
-});
+toggle.onclick=()=>menu.classList.toggle("active")
 
-hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-  hamburger.classList.toggle('open');
-});
+document.querySelectorAll("nav a").forEach(link=>{
+link.addEventListener("click",()=>{
+menu.classList.remove("active")
+})
+})
 
-document.querySelectorAll('.nav-links a').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('active');
-  });
-});
+window.addEventListener("scroll",()=>{
+document.getElementById("header")
+.classList.toggle("scrolled",scrollY>50)
 
-scrollTopBtn.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+document.getElementById("top").style.display=
+scrollY>400?"block":"none"
+})
 
-const reveals = document.querySelectorAll('.reveal');
+document.getElementById("top").onclick=()=>{
+scrollTo({top:0,behavior:"smooth"})
+}
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('active');
-    }
-  });
-}, { threshold: 0.2 });
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting) e.target.classList.add("show")
+})
+})
 
-reveals.forEach(el => observer.observe(el));
+document.querySelectorAll(".fade")
+.forEach(el=>observer.observe(el))
 
-const hero = document.querySelector('.hero');
+document.querySelectorAll("[data]").forEach(el=>{
+let target=+el.getAttribute("data")
+let n=0
 
-hero.addEventListener('mousemove', (e) => {
-  const x = (window.innerWidth / 2 - e.pageX) / 50;
-  const y = (window.innerHeight / 2 - e.pageY) / 50;
-  hero.style.backgroundPosition = `${50 + x}% ${50 + y}%`;
-});
+function update(){
+n+=target/60
+if(n<target){
+el.textContent=Math.floor(n)
+requestAnimationFrame(update)
+}else el.textContent=target
+}
+update()
+})
