@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THETRND - Creative Agency</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--dark:#05142b;
+--mid:#0d275b;
+--mid2:#143c8c;
+--blue:#3B6AFF;
+--yellow:#efdc70;
+--green:#00ba71;
+--red:#fc4259;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+font-family:'Inter',sans-serif;
+background:var(--dark);
+color:white;
+overflow-x:hidden;
+}
+
+/* NAVBAR */
+nav{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(5,20,43,0.85);
+backdrop-filter:blur(12px);
+display:flex;
+justify-content:space-between;
+padding:20px 8%;
+z-index:1000;
+}
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+font-size:14px;
+transition:0.3s;
+}
+nav a:hover{color:var(--blue);}
+
+/* HERO */
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
+overflow:hidden;
+}
+
+.pattern{
+position:absolute;
+inset:0;
+background:
+radial-gradient(var(--blue) 1px, transparent 1px);
+background-size:40px 40px;
+opacity:0.07;
+animation:movePattern 10s linear infinite;
+}
+
+@keyframes movePattern{
+from{transform:translateY(0);}
+to{transform:translateY(-40px);}
+}
+
+.hero h1{
+font-size:clamp(48px,8vw,120px);
+font-weight:800;
+letter-spacing:4px;
+animation:fadeUp 1.2s ease forwards;
+}
+
+.hero p{
+margin-top:20px;
+color:#bbb;
+font-size:18px;
+animation:fadeUp 1.5s ease forwards;
+}
+
+.hero-buttons{
+margin-top:35px;
+animation:fadeUp 1.8s ease forwards;
+}
+
+.btn{
+padding:14px 30px;
+border:none;
+cursor:pointer;
+font-weight:600;
+transition:0.3s;
+margin:10px;
+}
+
+.primary{
+background:var(--blue);
+color:white;
+}
+.primary:hover{transform:scale(1.07);}
+
+.outline{
+border:1px solid white;
+background:transparent;
+color:white;
+}
+.outline:hover{
+background:white;
+color:black;
+}
+
+/* SECTION BASE */
+section{
+padding:120px 8%;
+max-width:1400px;
+margin:auto;
+}
+
+.section-title{
+font-size:42px;
+margin-bottom:60px;
+font-weight:800;
+}
+
+/* PORTFOLIO */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.card{
+height:260px;
+background:var(--mid);
+position:relative;
+overflow:hidden;
+cursor:pointer;
+transition:0.4s;
+}
+
+.card:hover{transform:scale(1.05);}
+
+.overlay{
+position:absolute;
+inset:0;
+background:rgba(59,106,255,0.7);
+display:flex;
+align-items:center;
+justify-content:center;
+opacity:0;
+transition:0.4s;
+font-weight:700;
+font-size:22px;
+}
+
+.card:hover .overlay{opacity:1;}
+
+/* SERVICES */
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.service{
+background:var(--mid2);
+padding:40px;
+transition:0.3s;
+}
+
+.service:hover{
+background:var(--blue);
+transform:translateY(-8px);
+}
+
+/* TEAM */
+.team-member{
+text-align:center;
+}
+.team-member img{
+width:180px;
+height:180px;
+border-radius:50%;
+object-fit:cover;
+margin-bottom:20px;
+}
+
+/* PARTNERS */
+.partners img{
+filter:grayscale(100%);
+transition:0.3s;
+width:150px;
+}
+.partners img:hover{filter:none;}
+
+/* CONTACT */
+form{
+display:flex;
+flex-direction:column;
+gap:20px;
+max-width:600px;
+}
+input,textarea{
+padding:15px;
+border:none;
+background:var(--mid);
+color:white;
+}
+
+/* FOOTER */
+footer{
+background:var(--mid);
+padding:40px 8%;
+text-align:center;
+margin-top:100px;
+}
+
+/* ANIMATION */
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(40px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+nav{flex-direction:column;align-items:center;}
+nav div{margin-top:10px;}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div><strong>THETRND</strong></div>
+<div>
+<a href="#about">About</a>
+<a href="#portfolio">Portfolio</a>
+<a href="#services">Services</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+
+<section class="hero">
+<div class="pattern"></div>
+<div>
+<h1>Shape it ALL.</h1>
+<p>Creative Agency Shaping Conversations & Driving Impact.</p>
+<div class="hero-buttons">
+<button class="btn primary">View Work</button>
+<button class="btn outline">Contact Us</button>
+</div>
+</div>
+</section>
+
+<section id="about">
+<h2 class="section-title">About</h2>
+<p>
+Founded in 2017, THETRND made its debut in the industry. 
+In 2024, a new leadership acquisition marked a pivotal evolution.
+We create bold, impactful creative strategies.
+</p>
+</section>
+
+<section id="portfolio">
+<h2 class="section-title">Portfolio</h2>
+<div class="grid">
+<div class="card"><div class="overlay">Project 1</div></div>
+<div class="card"><div class="overlay">Project 2</div></div>
+<div class="card"><div class="overlay">Project 3</div></div>
+<div class="card"><div class="overlay">Project 4</div></div>
+<div class="card"><div class="overlay">Project 5</div></div>
+<div class="card"><div class="overlay">Project 6</div></div>
+</div>
+</section>
+
+<section id="services">
+<h2 class="section-title">Services</h2>
+<div class="services">
+<div class="service">Branding</div>
+<div class="service">Graphic Design</div>
+<div class="service">Creative Campaigns</div>
+<div class="service">Social Media</div>
+</div>
+</section>
+
+<section>
+<h2 class="section-title">Team</h2>
+<div class="services">
+<div class="team-member">
+<img src="https://i.pravatar.cc/200?img=3">
+<h4>Morad Omar</h4>
+<p>Graphic Designer</p>
+</div>
+<div class="team-member">
+<img src="https://i.pravatar.cc/200?img=4">
+<h4>Ahmed Sallam</h4>
+<p>Art Supervisor</p>
+</div>
+<div class="team-member">
+<img src="https://i.pravatar.cc/200?img=5">
+<h4>Khalid Sallam</h4>
+<p>Team Leader</p>
+</div>
+</div>
+</section>
+
+<section class="partners">
+<h2 class="section-title">Partners</h2>
+<div class="services">
+<img src="https://dummyimage.com/200x80/ffffff/000000&text=Partner+1">
+<img src="https://dummyimage.com/200x80/ffffff/000000&text=Partner+2">
+<img src="https://dummyimage.com/200x80/ffffff/000000&text=Partner+3">
+</div>
+</section>
+
+<section id="contact">
+<h2 class="section-title">Contact Us</h2>
+<form>
+<input type="text" placeholder="Your Name">
+<input type="email" placeholder="Your Email">
+<textarea rows="5" placeholder="Your Message"></textarea>
+<button class="btn primary">Send Message</button>
+</form>
+</section>
+
+<footer>
+<p>© 2025 THETRND. All rights reserved.</p>
+</footer>
+
+<script>
+// Smooth reveal on scroll
+const sections = document.querySelectorAll("section");
+
+window.addEventListener("scroll",()=>{
+sections.forEach(sec=>{
+const top = sec.getBoundingClientRect().top;
+if(top < window.innerHeight - 100){
+sec.style.opacity = 1;
+sec.style.transform = "translateY(0)";
+}
+});
+});
+</script>
+
+</body>
+</html>
